@@ -6,6 +6,8 @@ import connectDB from './config/database.js';
 
 const app = express()
 
+app.use(express.json())
+
 let PORT = process.env.PORT || 7777;
 
 app.use('/',(req,res)=>{
