@@ -1,5 +1,5 @@
 import express from 'express'
-import validateUserdata from '../utils/validator.js';
+import {validateUserdata} from '../utils/validator.js';
 import { comparePassword, hashPassword } from '../service/passwordService.js';
 import userModel from '../models/user.model.js';
 import { generateToken } from '../service/tokenService.js';
