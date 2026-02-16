@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 dotenv.config();
 import connectDB from './config/database.js';
-import authRouter from './routes/auth.router.js';
+import authRouter from './routes/auth.routes.js';
+import profileRoute from './routes/profile.routes.js';
 
 
 const app = express()
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use('/user', authRouter)
+app.use('/profile', profileRoute)
 
 let PORT = process.env.PORT || 7777;
 
