@@ -1,19 +1,24 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import crypto from 'crypto'
+import cookieParser from 'cookie-parser';
 dotenv.config();
 import connectDB from './config/database.js';
+import authRouter from './routes/auth.router.js';
 
 
 const app = express()
 
 app.use(express.json())
+app.use(cookieParser())
+
+app.use('/user', authRouter)
 
 let PORT = process.env.PORT || 7777;
 
 app.use('/',(req,res)=>{
     res.send('Hellow from the server')
 })
+
 // console.log(crypto.randomBytes(32).toString('hex'))
 await connectDB()
 app.listen(PORT,(req,res)=>{

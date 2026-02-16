@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 const generateToken = async (paylod) =>{
-    return await jwt.sign(paylod , process.env.JWTSECRET , {expiresIn:process.env.expireTime})
+    return await jwt.sign(paylod , process.env.JWTSECRET , {expiresIn:'1d'})
 }
 
 const verifyToken = async (token) =>{
