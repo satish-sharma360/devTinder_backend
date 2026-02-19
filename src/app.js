@@ -5,6 +5,7 @@ dotenv.config();
 import connectDB from './config/database.js';
 import authRouter from './routes/auth.routes.js';
 import profileRoute from './routes/profile.routes.js';
+import requestRouter from './routes/request.routes.js';
 
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(cookieParser())
 
 app.use('/user', authRouter)
 app.use('/profile', profileRoute)
+app.use('/connection', requestRouter)
 
 let PORT = process.env.PORT || 7777;
 
